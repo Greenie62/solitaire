@@ -1,0 +1,191 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position:relative;
+}
+
+body{
+    height:100vh;
+    width:100vw;
+}
+
+header {
+    height:20vh;
+    background:linear-gradient(to right,red,rgb(240, 49, 49),rgb(219, 23, 23));
+    width:100%;
+}
+
+footer{
+    text-align:center;
+    color:white;
+    text-shadow:2px 1px black;
+    background:linear-gradient(to right,red,rgb(240, 49, 49),rgb(219, 23, 23));
+}
+
+.headerCol, .headerRow{
+    position:absolute;
+}
+
+.headerCol{
+    top:-20%;
+    left:5%;
+    color:white;
+    text-shadow:2px 1px black;
+}
+
+.headerRow{
+    left:20%;
+    font-size:45px;
+}
+
+.iconone{
+    top:35px;
+    left:-25px;
+}
+
+
+
+.gameContainer{
+    height:70vh;
+    background:linear-gradient(to right,lightgray,gray)
+}
+
+.captionToPlayer{
+    text-align:center;
+    top:10px;
+    color:red;
+    font-size:20px;
+}
+
+.scoreArea, .gameArea{
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.scoreArea{
+    width:95%;
+    height:10%;
+    background:white;
+    border:1px solid black;
+    top:10%;
+    left:2%;
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+
+.gameArea{
+    width:99%;
+    /* border:1px solid black; */
+    height:50%;
+    left:1%;
+    /* background:white; */
+    top:25%;
+    display:flex;
+    align-items:flex-start;
+    justify-content: space-evenly;
+}
+
+.card{
+    height:60%;
+    width:20%;
+    border:1px solid black;
+    background:white;
+    cursor:pointer;
+}
+
+
+.playercard{
+    height:100%;
+    width:100%;
+    background:linear-gradient(to right,lightgray,rgb(197, 187, 187));
+    position:absolute;
+    cursor:pointer;
+    transition:1s ease;
+}
+
+.playercard:hover{
+    transform:scale(1.1)
+}
+
+
+.top-row, .bottom-row{
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+    width:100%;
+    height:15%;
+    position:absolute;
+}
+
+
+.bottom-row{
+    top:90%;
+}
+
+.black{
+    background:rgb(59, 56, 56);
+    color:white;
+}
+
+.red{
+    background:rgb(238, 68, 68);
+    color:black;
+}
+
+.dealerDivArea{
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+    top:70%;
+    height:30%;
+    width:100%;
+    /* border:1px solid purple; */
+}
+
+
+.dealerArea, .graveArea{
+    height:100%;
+    width:30%;
+    border:1px solid black;
+    /* top:65%;
+    left:10%; */
+}
+
+
+.dealerBtnDiv{
+    text-align:center;
+}
+
+
+.dealBtn{
+    border-radius:50%;
+    height:85px;
+    width:85px;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:1s ease;
+    background:linear-gradient(to right,rgb(201, 37, 37),rgb(218, 30, 30))
+   }
+
+.dealBtn:hover{
+    opacity:.8;
+}
+
+
+@media screen and (max-width:550px){
+    .headerRow{
+        font-size:20px;
+        left:30%;
+        top:30%;
+    }
+
+    .headerCol{
+        left:10%;
+    }
+
+}
