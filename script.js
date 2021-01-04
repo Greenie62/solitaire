@@ -12,6 +12,10 @@ var cardDOMS = document.querySelectorAll('.card');
 var captionDOM = document.querySelector(".caption");
 var captionToPlayerDOM = document.querySelector(".captionToPlayer");
 var cardsLeftDOM = document.querySelector(".cardsLeft");
+var resetBtn = document.querySelector(".resetButton");
+var highscoreDOM = document.querySelector(".highscore");
+
+resetBtn.style.display='none'
 var expressions = ["Invalid move: Color on color no no","Invalid move: Bad number sequence"]
 
 //dealer shuffle hand counter(if you go thru whole deck and still equals zero, ask player if they want to quit)
@@ -20,6 +24,11 @@ var dealerRef=0;
 
 var scoreDOM = document.querySelector(".score");
 var cardsPlayedDOM = document.querySelector(".cardsPlayed");
+
+let highScore = parseInt(sessionStorage.getItem('highscore')) || 0;
+
+highscoreDOM.innerHTML = highScore;
+
 
 
 families.forEach(f=>{
@@ -106,6 +115,8 @@ cardsLeftDOM.innerHTML = dealerRef
 
 dealerCards()
 let currCardss;
+let clickCard1;
+let clickCard2;
 
 cards=[...cards,...cardDOMS]
 
@@ -119,7 +130,20 @@ cards.forEach(c=>{
     c.ondragleave=(e)=>dragLeave(e);
     c.ondragenter=(e)=>dragEnter(e);
     c.ondrop=(e)=>dragDrop(e);
-    c.onclick=()=>console.log("what the frig??")
+    c.onclick=(e)=>{
+        console.log("what the frig??")
+        // if(!clickCard1){
+        // clickCard1 = e.target
+        // }
+        // else{
+        //     clickCard2= e.target;
+
+        //     e.target.appendChild(clickCard1)
+        //     clickCard1.style.top="25px"
+        //     clickCard1,clickCard2;
+
+        // }
+         }
 })
 
 
@@ -253,6 +277,8 @@ function recycleDeck(){
     else{
         console.log("no moves made that cycle")
         captionDOM.innerHTML = "No moves made that cycle!"
+        resetBtn.style.backgroundColor='green'
+        resetBtn.style.display='block'
         setTimeout(()=>{
             captionDOM.innerHTML = ""
         },1500)
@@ -261,6 +287,24 @@ function recycleDeck(){
         dealerArea.append(c)
         leftOverCards.push(c)
     })
+}
+
+
+resetBtn.onclick=restartGame;
+
+
+function restartGame(){
+    console.log("Time for a new hand huh?")
+
+
+    if(score > highScore){
+        console.log("Congrats, you logged a highscore!!");
+        sessionStorage.setItem('highscore', score)
+    }
+
+    setTimeout(()=>{   
+         window.location.reload()
+    },1500)
 }
 
 
